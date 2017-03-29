@@ -139,5 +139,13 @@ Page({
     this.setData({
       refectorys: tempRefectorys
     });
+  },
+  // 分享
+  onShareAppMessage: function(){
+    return {
+      title: '食堂吃哪个',
+      path: '/',
+      success: function(){}
+    }
   }
 })
