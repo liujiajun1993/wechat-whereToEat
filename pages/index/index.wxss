@@ -1,0 +1,58 @@
+/**index.wxss**/
+.picker-school{
+  border: 1rpx solid #3b7960;
+  border-radius: 10rpx;
+  box-shadow: 1px 1px #7ebe15;
+  font-size: 36rpx;
+  line-height: 2;
+  text-align: center;
+  width: 600rpx;
+}
+
+.instruction{
+  margin: 50rpx 0 20rpx;
+  font-weight: 700;
+  border-top: 3rpx solid #65318e;
+  width: 100%;
+  text-align: center;
+  line-height: 2;
+}
+
+.list-refectory{
+  font-size: 40rpx;
+  line-height: 2;
+}
+
+.item-refectory{
+  display: inline-block;
+  margin: 0;
+  width:400rpx;
+  text-align: center;
+}
+
+.container-button{
+  margin: 50rpx 0;
+}
+
+.button{
+  line-height: 2.6;
+  width: 600rpx;
+}
+
+.button-secondary{
+  margin-top: 30rpx;
+  background: #c3d825;
+  color: #fff;
+}
+
+.button-delete{
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 1.6;
+  background: #f00;
+  color: #fff;
+}
+
+.text-result{
+  color: #2e2930;
+}

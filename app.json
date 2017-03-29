@@ -1,0 +1,11 @@
+{
+  "pages":[
+    "pages/index/index"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#badcad",
+    "navigationBarTitleText": "食堂吃哪个",
+    "navigationBarTextStyle":"black"
+  }
+}
