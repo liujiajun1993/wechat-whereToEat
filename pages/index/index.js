@@ -90,6 +90,9 @@ Page({
         totalCount += item.ratio;
       }
     );
+    if(totalCount < 1){
+      return;
+    }
     var randomNum = Math.floor(Math.random()*totalCount) + 1;
     for(let i = 0, len = tempRefectorys.length; i < len; i++){
       randomNum -= tempRefectorys[i].ratio;
@@ -108,6 +111,9 @@ Page({
     var name = this.data.selectedRefectory.name;
     var index = this.data.refectorys.findIndex(function(element){return element.name == name});
     var currentArr = this.data.refectorys;
+    if(currentArr.length < 1 || index < 0){
+      return;
+    }
     currentArr.splice(index, 1);
     this.setData({
       // 注意此处，如果重新选择学校，那么删除选项将变回来
