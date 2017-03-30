@@ -28,35 +28,17 @@ Page({
         name: '艺园',
         ratio: 1
       },{
-        name: '畅春新园',
+        name: '畅春园',
+        ratio: 1
+      },{
+        name: '松林',
+        ratio: 1
+      },{
+        name: '任意小白房',
         ratio: 1
       }]
     },
-    refectorys: [{
-        name: '农园一层',
-        ratio: 1
-      }, {
-        name: '农园二层',
-        ratio: 1
-      },{
-        name: '燕南',
-        ratio: 1
-      },{
-        name: '学一',
-        ratio: 1
-      },{
-        name: '学五',
-        ratio: 1
-      },{
-        name: '勺园',
-        ratio: 1
-      },{
-        name: '艺园',
-        ratio: 1
-      },{
-        name: '畅春新园',
-        ratio: 1
-      }],
+    refectorys: [],
     selectedRefectory: null,
     ratioList: ['1倍概率','2倍概率','3倍概率','4倍概率','5倍概率'],
     userInfo: {}
@@ -72,6 +54,7 @@ Page({
         userInfo:userInfo
       })
     })
+    this.onReset();
   },
   // 选择学校
   onSchoolChange: function(e){
