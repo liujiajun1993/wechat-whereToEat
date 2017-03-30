@@ -45,6 +45,12 @@
   color: #fff;
 }
 
+.button-reset{
+  margin-top: 30rpx;
+  background: #dccb18;
+  color: #fff;  
+}
+
 .button-delete{
   display: inline-block;
   vertical-align: middle;

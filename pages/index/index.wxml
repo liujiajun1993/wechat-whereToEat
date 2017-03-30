@@ -3,7 +3,8 @@
   <view class="container-result" wx:if="{{selectedRefectory}}">请前往<text class="text-result">{{selectedRefectory.name}}</text>完成用餐任务</view>
   <view class="container-button">
     <button type="primary" class="button" bindtap="onStartSelect">请指引我前进方向</button>
-    <button class="button button-secondary" bindtap="onDeleteandSelect" wx:if="{{selectedRefectory}}">怀疑人生，删除该项</button>
+    <button class="button button-secondary" bindtap="onDeleteandSelect" wx:if="{{selectedRefectory}}">怀疑人生，删除该食堂</button>
+    <button class="button button-reset" bindtap="onReset" wx:if="{{selectedRefectory}}">换下一顿饭，重置食堂</button>
   </view>
   <picker class="picker-school" bindchange="onSchoolChange" bindtap="onSchoolSelect" value="index" range="{{schoolList}}">
     <view class="picker-selected">

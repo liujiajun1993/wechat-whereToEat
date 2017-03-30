@@ -132,6 +132,12 @@ Page({
       refectorys: currentArr
     });
   },
+  // 重置食堂
+  onReset: function(e){
+    this.setData({
+      refectorys: this.data.refectoryList[this.data.schoolSelected]
+    })
+  },
   // 更改倍率
   onRatioChange: function(e){
     var ratio = +e.detail.value + 1;
