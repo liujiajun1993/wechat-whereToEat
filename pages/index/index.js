@@ -108,6 +108,9 @@ Page({
   onDeleteOption: function(e){
     var name = e.target.dataset.refectory;
     var index = this.data.refectorys.findIndex(function(element){return element.name == name});
+    if(index < 0){
+      return;
+    }
     var currentArr = this.data.refectorys;
     currentArr.splice(index, 1);
     this.setData({
@@ -139,7 +142,7 @@ Page({
   // 分享
   onShareAppMessage: function(){
     return {
-      title: '食堂吃哪个',
+      title: '就决定是你了！',
       path: '/',
       success: function(){}
     }
