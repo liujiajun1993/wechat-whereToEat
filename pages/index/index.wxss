@@ -62,6 +62,7 @@
 
 .text-result{
   color: #2e2930;
+  text-decoration: underline;
 }
 
 .picker-ratio{

@@ -118,7 +118,8 @@ Page({
   // 重置食堂
   onReset: function(e){
     this.setData({
-      refectorys: this.data.refectoryList[this.data.schoolSelected]
+      refectorys: this.data.refectoryList[this.data.schoolSelected],
+      selectedRefectory: null
     })
   },
   // 更改倍率
