@@ -143,7 +143,7 @@ Page({
   onShareAppMessage: function(){
     return {
       title: '就决定是你了！',
-      path: '/',
+      path: '/pages/index/index',
       success: function(){}
     }
   }

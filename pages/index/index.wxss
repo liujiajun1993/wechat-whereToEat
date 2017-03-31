@@ -60,9 +60,17 @@
   margin-right: 50rpx;
 }
 
+.container-result{
+  font-size: 1.2em;
+}
 .text-result{
   color: #2e2930;
   text-decoration: underline;
+}
+.text-result:before, .text-result:after{
+  display: inline-block;
+  content: '';
+  width: 10rpx;
 }
 
 .picker-ratio{
