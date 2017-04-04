@@ -11,6 +11,8 @@
 
 .instruction{
   margin: 50rpx 0 20rpx;
+  padding: 10rpx 0 0;
+  font-size: ;
   font-weight: 700;
   border-top: 3rpx solid #65318e;
   width: 100%;
@@ -21,12 +23,21 @@
 .list-refectory{
   font-size: 40rpx;
   line-height: 2;
+  width: 100%;
+  height: 80rpx;
+  margin-bottom: 10rpx;
+  display: flex;
+  align-items: center;
 }
 
 .item-refectory{
   display: inline-block;
   margin: 0;
-  width:360rpx;
+  width:100rpx;
+  flex-grow: 1;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
   text-align: center;
 }
 
@@ -39,23 +50,29 @@
   width: 600rpx;
 }
 
+.button-primary{
+  background: #40d22b;
+  color: #fff;
+}
+
 .button-secondary{
   margin-top: 30rpx;
-  background: #c3d825;
+  background: #bae120;
   color: #fff;
 }
 
 .button-reset{
   margin-top: 30rpx;
-  background: #dccb18;
-  color: #fff;  
+  background: #dcc930;
+  color: #fff;
 }
 
 .button-delete{
   display: inline-block;
   vertical-align: middle;
+  height: 1.6em;
   line-height: 1.6;
-  background: #f00;
+  background: #f25506;
   color: #fff;
   margin-right: 50rpx;
 }
@@ -78,5 +95,5 @@
   width: 160rpx;
   text-align: center;
   border-bottom: 1px solid #ccc;
-  margin-right: 40rpx;
+  margin-right: 80rpx;
 }

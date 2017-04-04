@@ -7,4 +7,5 @@
   justify-content: space-between;
   padding: 60rpx 0 100px;
   box-sizing: border-box;
+  font-size: 40rpx;
 } 
