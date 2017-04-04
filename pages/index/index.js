@@ -7,38 +7,29 @@ Page({
     schoolSelected: '北京大学',
     refectoryList:{
       '北京大学': [{
-        name: '农园一层',
-        ratio: 1
+        name: '农园一层'
       }, {
-        name: '农园二层',
-        ratio: 1
+        name: '农园二层'
       },{
-        name: '燕南',
-        ratio: 1
+        name: '燕南'
       },{
-        name: '学一',
-        ratio: 1
+        name: '学一'
       },{
-        name: '学五',
-        ratio: 1
+        name: '学五'
       },{
-        name: '勺园',
-        ratio: 1
+        name: '勺园'
       },{
-        name: '艺园',
-        ratio: 1
+        name: '艺园'
       },{
-        name: '畅春园',
-        ratio: 1
+        name: '畅春园'
       },{
-        name: '松林',
-        ratio: 1
+        name: '松林'
       },{
-        name: '任意小白房',
-        ratio: 1
+        name: '任意小白房'
       }]
     },
     refectorys: [],
+    isAllRefectorySelected: true,
     selectedRefectory: null,
     ratioList: ['1倍概率','2倍概率','3倍概率','4倍概率','5倍概率'],
     userInfo: {}
@@ -60,9 +51,9 @@ Page({
   onSchoolChange: function(e){
     var selectedSchool = this.data.schoolList[e.detail.value];
     this.setData({
-      schoolSelected: selectedSchool,
-      refectorys: this.data.refectoryList[selectedSchool]
-    })
+      schoolSelected: selectedSchool
+    });
+    this.onReset();
   },
   // 随机食堂
   onStartSelect: function(){
@@ -70,14 +61,20 @@ Page({
     var tempRefectorys = this.data.refectorys;
     tempRefectorys.forEach(
       function(item){
-        totalCount += item.ratio;
+        if(item.selected)
+          totalCount += item.ratio;
       }
     );
     if(totalCount < 1){
+      this.setData({
+        selectedRefectory: null
+      });
       return;
     }
     var randomNum = Math.floor(Math.random()*totalCount) + 1;
     for(let i = 0, len = tempRefectorys.length; i < len; i++){
+      if(!tempRefectorys[i].selected)
+        continue;
       randomNum -= tempRefectorys[i].ratio;
       if(randomNum <= 0){
         selectedIndex = i;
@@ -97,33 +94,50 @@ Page({
     if(currentArr.length < 1 || index < 0){
       return;
     }
-    currentArr.splice(index, 1);
+    currentArr[index].selected = false;
     this.setData({
       // 注意此处，如果重新选择学校，那么删除选项将变回来
       refectorys: currentArr
     });
+    this.checkIsAll();
     this.onStartSelect();
   },
-  // 食堂列表中删除选项
-  onDeleteOption: function(e){
-    var name = e.target.dataset.refectory;
-    var index = this.data.refectorys.findIndex(function(element){return element.name == name});
-    if(index < 0){
-      return;
-    }
+  // 食堂复选框
+  checkboxChangeRefectory: function(e){
+    var names = e.detail.value;
     var currentArr = this.data.refectorys;
-    currentArr.splice(index, 1);
+    currentArr.forEach((item) => {
+      var index = names.findIndex(function(element){return element === item.name});
+      item.selected = index >= 0 ? true : false;
+    });
     this.setData({
-      // 注意此处，如果重新选择学校，那么删除选项将变回来
+      refectorys: currentArr
+    });
+    this.checkIsAll();
+  },
+  // 全选或全不选食堂
+  checkboxChangeRefectoryAll: function(e){
+    let currentArr = this.data.refectorys;
+    let status = e.detail.value.length > 0 ? true : false;
+    currentArr.forEach((item) => {
+      item.selected = status;
+    });
+    this.setData({
       refectorys: currentArr
     });
   },
   // 重置食堂
   onReset: function(e){
+    let currentRefectory = Object.create(this.data.refectoryList[this.data.schoolSelected]);
+    currentRefectory.forEach(function(item){
+      item.selected = true;
+      item.ratio = 1;
+    });
     this.setData({
       refectorys: this.data.refectoryList[this.data.schoolSelected],
-      selectedRefectory: null
-    })
+      selectedRefectory: null,
+      isAllRefectorySelected: true
+    });
   },
   // 更改倍率
   onRatioChange: function(e){
@@ -146,5 +160,14 @@ Page({
       path: '/pages/index/index',
       success: function(){}
     }
+  },
+  // 检查是否所有食堂都被勾选
+  checkIsAll: function(){
+    let result = this.data.refectorys.every((item) => {
+      return item.selected == true;
+    })
+    this.setData({
+      isAllRefectorySelected: result
+    })
   }
 })

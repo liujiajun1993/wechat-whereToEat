@@ -10,11 +10,19 @@
     <view class="picker-selected">
       当前学校：{{schoolSelected}} <text>(点击更改)</text>
     </view>
-  </picker> 
-  <view class="instruction">食堂列表</view>
-  <view class="list-refectory" wx:for="{{refectorys}}">
-    <text class="item-refectory">{{item.name}}</text>
-    <picker class="picker-ratio" data-refectory="{{item.name}}" bindchange="onRatioChange" range="{{ratioList}}" value="{{item.ratio-1}}">{{ratioList[item.ratio-1]}}</picker>
-    <button class="button-delete" data-refectory="{{item.name}}" bindtap="onDeleteOption">去除</button>
+  </picker>
+  <view class="header-refectory">
+    <text class="item-refectory">食堂列表</text>
+    <text class="picker-ratio">倍率</text>
+    <checkbox-group bindchange="checkboxChangeRefectoryAll">
+      <checkbox class="check-refectory-all" checked="{{isAllRefectorySelected}}" value="1"></checkbox>
+    </checkbox-group>
   </view>
+  <checkbox-group class="checkbox-group-refectory" bindchange="checkboxChangeRefectory">
+    <view class="list-refectory" wx:for="{{refectorys}}">
+      <text class="item-refectory">{{item.name}}</text>
+      <picker class="picker-ratio" data-refectory="{{item.name}}" bindchange="onRatioChange" range="{{ratioList}}" value="{{item.ratio-1}}">{{ratioList[item.ratio-1]}}</picker>
+      <checkbox class="check-refectory" checked="{{item.selected}}" value="{{item.name}}" color="#f25506"></checkbox>
+    </view>
+  </checkbox-group>
 </view>

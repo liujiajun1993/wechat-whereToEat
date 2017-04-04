@@ -9,15 +9,19 @@
   width: 600rpx;
 }
 
-.instruction{
+.header-refectory{
   margin: 50rpx 0 20rpx;
-  padding: 10rpx 0 0;
-  font-size: ;
+  padding: 10rpx 20rpx 0;
   font-weight: 700;
   border-top: 3rpx solid #65318e;
   width: 100%;
   text-align: center;
   line-height: 2;
+  display: flex;
+  align-items: center;
+}
+.header-refectory checkbox-group{
+  margin-right: 80rpx;
 }
 
 .list-refectory{
@@ -95,5 +99,16 @@
   width: 160rpx;
   text-align: center;
   border-bottom: 1px solid #ccc;
+  margin-right: 80rpx;
+}
+.header-refectory .picker-ratio{
+  border-bottom: none;
+}
+
+.checkbox-group-refectory{
+  width: 100%;
+}
+
+.check-refectory{
   margin-right: 80rpx;
 }
