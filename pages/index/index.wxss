@@ -50,35 +50,29 @@
 }
 
 .button{
-  line-height: 2.6;
+  font-size: 42rpx;
+  line-height: 2.4;
   width: 600rpx;
 }
 
 .button-primary{
   background: #40d22b;
   color: #fff;
+  box-shadow: 1px 1px #20b20b;
 }
 
 .button-secondary{
   margin-top: 30rpx;
   background: #bae120;
   color: #fff;
+  box-shadow: 1px 1px #7aa100;
 }
 
 .button-reset{
   margin-top: 30rpx;
   background: #dcc930;
   color: #fff;
-}
-
-.button-delete{
-  display: inline-block;
-  vertical-align: middle;
-  height: 1.6em;
-  line-height: 1.6;
-  background: #f25506;
-  color: #fff;
-  margin-right: 50rpx;
+  box-shadow: 1px 1px #bca910;
 }
 
 .container-result{
